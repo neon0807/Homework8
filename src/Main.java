@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args){
 
         cars[0] = new Car("LADA", "Granta", 1.7f,
-                "Желтый", 2015, "Россия");
+                "", 2015, "Россия");
         cars[1] = new Car("Audi", "A8 50 L TDI quattro", 3.0f,
                 "Черный",2020,"Германия");
         cars[2] = new Car("BMW", "Z8", 3.0f,

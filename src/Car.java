@@ -1,68 +1,90 @@
 import java.util.Arrays;
 
 public class Car {
-    String brand;
-    String model;
-    float engineVolume;
-    String color;
-    int year;
-    String productionCountry;
+    private String brand;
 
-    Car [] cars;
+    public String getBrand() {
+        return brand;
+    }
 
-    public Car(String model, float engineVolume, String color, int year,String productionCountry){
-        this.brand = "default";
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    private String model;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
         this.model = model;
+    }
+
+    private float engineVolume;
+
+    public float getEngineVolume() {
+        return engineVolume;
+    }
+
+    public void setEngineVolume(float engineVolume) {
         this.engineVolume = engineVolume;
+    }
+
+    private String color;
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
         this.color = color;
+    }
+
+    private int year;
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
         this.year = year;
+    }
+
+    private String productionCountry;
+
+    public String getProductionCountry() {
+        return productionCountry;
+    }
+
+    public void setProductionCountry(String productionCountry) {
         this.productionCountry = productionCountry;
     }
 
-    public Car(float engineVolume, String color, String brand, int year, String productionCountry){
-        this.brand = brand;
-        this.model = "default";
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.year = year;
-        this.productionCountry = productionCountry;
-    }
+    public Car(String brand, String model, float engineVolume, String color,
+                int year, String productionCountry){
 
-    public Car(String brand, String model, float engineVolume, int year, String productionCountry){
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = "default";
-        this.year = year;
-        this.productionCountry = productionCountry;
-    }
-
-    public Car(String brand, String model, float engineVolume, String color, int year){
-        this.brand = brand;
-        this.model = model;
-        this.engineVolume = engineVolume;
-        this.color = color;
-        this.year = year;
-        this.productionCountry = "default";
-    }
-
-    public Car(String brand, String model, float engineVolume, String color, int year,String productionCountry){
-        if (brand.isEmpty()){
+        if (brand == null || brand.isEmpty()){
             this.brand = "default";
         } else this.brand = brand;
-        if (model.isEmpty()){
+
+        if (model == null ||model.isEmpty()){
             this.model = "default";
         } else this.model = model;
+
         if (engineVolume <= 0){
             this.engineVolume = 1.5f;
         } else this.engineVolume =engineVolume;
-        if (color.isEmpty()){
+
+        if (color == null || color.isEmpty()){
             this.color = "Белый";
         } else this.color = color;
+
         if (year <= 0){
-            year = 2000;
+            this.year = 2000;
         } else this.year = year;
-        if (productionCountry.isEmpty()){
+
+        if (productionCountry == null || productionCountry.isEmpty()){
             this.productionCountry = "default";
         } else this.productionCountry = productionCountry;
     }
@@ -70,12 +92,12 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "Марка='" + brand + '\'' +
-                ", Модель='" + model + '\'' +
-                ", Объем двигателя=" + engineVolume +
-                ", Цвет кузова='" + color + '\'' +
-                ", Год выпуска=" + year +
-                ", Страна сборки='" + productionCountry + '\'' +
+                "brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", engineVolume=" + engineVolume +
+                ", color='" + color + '\'' +
+                ", year=" + year +
+                ", productionCountry='" + productionCountry + '\'' +
                 '}';
     }
 }
