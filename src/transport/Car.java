@@ -4,6 +4,28 @@ import java.time.LocalDate;
 
 public class Car {
 
+    private static class Key{
+        private boolean remoteEngineStart;
+        public boolean isRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+        public void setRemoteEngineStart(boolean remoteEngineStart) {
+            this.remoteEngineStart = remoteEngineStart;
+        }
+
+        private boolean keylessAccess;
+        public boolean isKeylessAccess() {
+            return keylessAccess;
+        }
+        public void setKeylessAccess(boolean keylessAccess) {
+            this.keylessAccess = keylessAccess;
+        }
+
+        public Key(boolean remoteEngineStart, boolean keylessAccess){
+
+        }
+    }
+
     private final String brand;
     public String getBrand() {
         return brand;
@@ -72,7 +94,10 @@ public class Car {
                int year, String productionCountry, String transmission, String bodyType,
                String registrationNumber, String numberOfSeats){
 
+
+
         boolean typeOfRubber;
+
         if (LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
             this.typeOfRubber = true;
         }
