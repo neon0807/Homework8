@@ -56,7 +56,7 @@ public class Car {
                 System.out.println("Нужно срочно ехать оформлять новую страховку");
             }
         }
-//
+
         public void chekNumberInsurance(){
             if (numberInsurance != null && numberInsurance > 99999999 && numberInsurance <1000000000){
                 this.numberInsurance = numberInsurance;
