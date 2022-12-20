@@ -26,6 +26,47 @@ public class Car {
         }
     }
 
+    private class Insurance {
+        private LocalDate ofvalidityPeriod;
+
+        public LocalDate getOfvalidityPeriod() {
+            return ofvalidityPeriod;
+        }
+
+        private Integer costInsurance;
+
+        public Integer getCostInsurance() {
+            return costInsurance;
+        }
+
+        private Integer numberInsurance;
+
+        public Integer getNumberInsurance() {
+            return numberInsurance;
+        }
+
+        public Insurance(LocalDate ofvalidityPeriod, Integer costInsurance, Integer numberInsurance) {
+            this.ofvalidityPeriod = ofvalidityPeriod;
+            this.costInsurance = costInsurance;
+            this.numberInsurance = numberInsurance;
+        }
+
+        public void checkValidityPeriod(){
+            if (ofvalidityPeriod.isAfter(LocalDate.now())){
+                System.out.println("Нужно срочно ехать оформлять новую страховку");
+            }
+        }
+//
+        public void chekNumberInsurance(){
+            if (numberInsurance != null && numberInsurance > 99999999 && numberInsurance <1000000000){
+                this.numberInsurance = numberInsurance;
+            } else System.out.println("Номер страховки некорректный!");
+        }
+    }
+
+
+
+
     private final String brand;
     public String getBrand() {
         return brand;
@@ -88,7 +129,7 @@ public class Car {
         return numberOfSeats;
     }
 
-    private boolean typeOfRubber;
+    private boolean isWinter;
 
     public Car(String brand, String model, float engineVolume, String color,
                int year, String productionCountry, String transmission, String bodyType,
@@ -96,11 +137,11 @@ public class Car {
 
 
 
-        boolean typeOfRubber;
+       // boolean typeOfRubber;
 
         if (LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
-            this.typeOfRubber = true;
-        }
+            this.isWinter = true;
+        } else this.isWinter = false;
 
         if (transmission == null || transmission.isEmpty() || transmission.isBlank()){
             this.transmission = "default";
@@ -146,8 +187,8 @@ public class Car {
         }
 
         public void changeRubber(){
-            if (typeOfRubber){
-                System.out.println("Сейчас зима, надо установить зимнии покрышки на колеса");
+            if (isWinter){
+                System.out.println("Хорошо что резина зимняя");
             } else System.out.println("Сейчас лето, надо установить летние покрышки на колеса ");
         }
 
@@ -164,7 +205,7 @@ public class Car {
                 ", bodyType='" + bodyType + '\'' +
                 ", registrationNumber='" + registrationNumber + '\'' +
                 ", numberOfSeats='" + numberOfSeats + '\'' +
-                ", typeOfRubber=" + typeOfRubber +
+                ", typeOfRubber=" + isWinter +
                 '}';
     }
 }
