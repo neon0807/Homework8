@@ -2,7 +2,7 @@ package transport;
 
 import java.time.LocalDate;
 
-public class Car {
+public class Car extends Transport {
 
     private static class Key{
         private boolean remoteEngineStart;
@@ -67,15 +67,15 @@ public class Car {
 
 
 
-    private final String brand;
-    public String getBrand() {
-        return brand;
-    }
-
-    private final String model;
-    public String getModel() {
-        return model;
-    }
+//    private final String brand;
+//    public String getBrand() {
+//        return brand;
+//    }
+//
+//    private final String model;
+//    public String getModel() {
+//        return model;
+//    }
 
     private float engineVolume;
     public float getEngineVolume() {
@@ -85,23 +85,23 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    private String color;
-    public String getColor() {
-        return color;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
+//    private String color;
+//    public String getColor() {
+//        return color;
+//    }
+//    public void setColor(String color) {
+//        this.color = color;
+//    }
+//
+//    private final int year;
+//    public int getYear() {
+//        return year;
+//    }
 
-    private final int year;
-    public int getYear() {
-        return year;
-    }
-
-    private final String productionCountry;
-    public String getProductionCountry() {
-        return productionCountry;
-    }
+//    private final String productionCountry;
+//    public String getProductionCountry() {
+//        return productionCountry;
+//    }
 
     private String transmission;
     public String getTransmission() {
@@ -133,7 +133,8 @@ public class Car {
 
     public Car(String brand, String model, float engineVolume, String color,
                int year, String productionCountry, String transmission, String bodyType,
-               String registrationNumber, String numberOfSeats){
+               String registrationNumber, String numberOfSeats, Integer maxSpeed){
+        super(brand, model,color, year, productionCountry,maxSpeed);
 
 
         this.isWinter = isWinter;
@@ -157,51 +158,34 @@ public class Car {
 
 
 
-            if (brand == null || brand.isEmpty()){
-                    this.brand = "default";
-                } else this.brand = brand;
-
-            if (model == null ||model.isEmpty()){
-                    this.model = "default";
-                } else this.model = model;
+//            if (brand == null || brand.isEmpty()){
+//                    this.brand = "default";
+//                } else this.brand = brand;
+//
+//            if (model == null ||model.isEmpty()){
+//                    this.model = "default";
+//                } else this.model = model;
 
             if (engineVolume <= 0){
                     this.engineVolume = 1.5f;
                 } else this.engineVolume =engineVolume;
 
-            if (color == null || color.isEmpty()){
-                    this.color = "Белый";
-                } else this.color = color;
-
-            if (year <= 0){
-                    this.year = 2000;
-                } else this.year = year;
-
-            if (productionCountry == null || productionCountry.isEmpty()){
-                    this.productionCountry = "default";
-                } else this.productionCountry = productionCountry;
+//            if (color == null || color.isEmpty()){
+//                    this.color = "Белый";
+//                } else this.color = color;
+//
+//            if (year <= 0){
+//                    this.year = 2000;
+//                } else this.year = year;
+//
+//            if (productionCountry == null || productionCountry.isEmpty()){
+//                    this.productionCountry = "default";
+//                } else this.productionCountry = productionCountry;
         }
 
         public void changeRubber(){
             if (isWinter && LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
                 System.out.println("Хорошо что установленна резина зимняя");
             } else System.out.println("Срочно, надо поменять покрышки на колеса ");
-        }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", year=" + year +
-                ", productionCountry='" + productionCountry + '\'' +
-                ", transmission='" + transmission + '\'' +
-                ", bodyType='" + bodyType + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", numberOfSeats='" + numberOfSeats + '\'' +
-                ", typeOfRubber=" + isWinter +
-                '}';
-    }
+       }
 }
