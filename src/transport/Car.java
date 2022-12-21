@@ -136,12 +136,8 @@ public class Car {
                String registrationNumber, String numberOfSeats){
 
 
+        this.isWinter = isWinter;
 
-       // boolean typeOfRubber;
-
-        if (LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
-            this.isWinter = true;
-        } else this.isWinter = false;
 
         if (transmission == null || transmission.isEmpty() || transmission.isBlank()){
             this.transmission = "default";
@@ -187,9 +183,9 @@ public class Car {
         }
 
         public void changeRubber(){
-            if (isWinter){
-                System.out.println("Хорошо что резина зимняя");
-            } else System.out.println("Сейчас лето, надо установить летние покрышки на колеса ");
+            if (isWinter && LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
+                System.out.println("Хорошо что установленна резина зимняя");
+            } else System.out.println("Срочно, надо поменять покрышки на колеса ");
         }
 
     @Override
