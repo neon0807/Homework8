@@ -1,8 +1,10 @@
+import transport.Bus;
 import transport.Car;
 
 public class Main {
 
     static Car[] cars = new Car[5];
+    static Bus[] bus = new Bus[3];
 
     public static void main(String[] args){
 
@@ -26,6 +28,15 @@ public class Main {
             System.out.println(cars[i]);
         }
 
+        bus[0] = new Bus("Мерседес", "Спринтер", "Белый", 2019,
+                "Германия", 190);
+        bus[1] = new Bus("Фольксваген", "Крафтер", "Красный", 2017,
+                "Германия", 195);
+        bus[2] = new Bus("Форд", "Транзит", "Зеленый", 2015,
+                "США", 170);
+        for (int i = 0; i < bus.length; i++) {
+            System.out.println(bus[i]);
+        }
 
     }
 
