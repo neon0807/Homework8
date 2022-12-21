@@ -52,7 +52,7 @@ public class Car extends Transport {
         }
 
         public void checkValidityPeriod(){
-            if (ofvalidityPeriod.isAfter(LocalDate.now())){
+            if (ofvalidityPeriod.isBefore(LocalDate.now())){
                 System.out.println("Нужно срочно ехать оформлять новую страховку");
             }
         }
@@ -183,9 +183,9 @@ public class Car extends Transport {
 //                } else this.productionCountry = productionCountry;
         }
 
-        public void changeRubber(){
-            if (isWinter && LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12){
-                System.out.println("Хорошо что установленна резина зимняя");
-            } else System.out.println("Срочно, надо поменять покрышки на колеса ");
-       }
+        public void changeRubber() {
+            if (!isWinter && LocalDate.now().getMonthValue() <= 2 || LocalDate.now().getMonthValue() == 12) {
+                isWinter = true;
+            }
+        }
 }
